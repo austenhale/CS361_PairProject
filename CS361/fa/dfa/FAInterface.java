@@ -1,9 +1,8 @@
-package fa;
+package fa.dfa;
 
 import java.util.Set;
 
 import fa.State;
-import fa.dfa.DFA;
 
 
 public interface FAInterface {
