@@ -1,6 +1,8 @@
 package fa.dfa;
 import java.util.Set;
 
+import fa.State;
+
 public class DFA implements DFAInterface{
 
 	@Override
