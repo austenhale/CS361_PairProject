@@ -10,7 +10,7 @@ import fa.State;
 public class DFA implements DFAInterface{
 	
 	private HashSet<DFAState> statesSet; //holds all the states of the DFA
-	private HashMap<DFAState, String> transitionMap; //holds all transitions
+	
 	private DFAState startState; //starting state
 	private HashSet<DFAState> finalStates; //holds all final states
 
@@ -41,7 +41,10 @@ public class DFA implements DFAInterface{
 
 	@Override
 	public void addTransition(String fromState, char onSymb, String toState) {
-		// TODO Auto-generated method stub
+		DFAState state1 = new DFAState(fromState);
+		DFAState state2 = new DFAState(toState);
+		
+		state1.addTransition(onSymb, state2);
 		
 	}
 
@@ -74,7 +77,9 @@ public class DFA implements DFAInterface{
 
 	@Override
 	public boolean accepts(String s) {
-		// TODO Auto-generated method stub
+		//s is an input string that goes through the DFA machine
+		//returns true if valid string, false otherwise
+		
 		return false;
 	}
 
