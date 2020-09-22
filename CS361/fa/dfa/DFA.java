@@ -9,9 +9,16 @@ import fa.State;
 
 public class DFA implements DFAInterface{
 	
-	private HashSet<DFAState> statesSet = new HashSet<>(); //holds all the states of the DFA
+	private HashSet<DFAState> statesSet; //holds all the states of the DFA
 	private DFAState startState; //starting state
-	private HashSet<DFAState> finalStates = new HashSet<>();; //holds all final states
+	private HashSet<DFAState> finalStates; //holds all final states
+	private HashSet<Character> alphabet; //includes all letters used
+	
+	public DFA() {
+		statesSet = new HashSet<>();
+		finalStates = new HashSet<>();
+		alphabet = new HashSet<>();
+	}
 
 	@Override
 	public void addStartState(String name) {
@@ -42,7 +49,9 @@ public class DFA implements DFAInterface{
 	public void addTransition(String fromState, char onSymb, String toState) {
 		DFAState state1 = new DFAState(fromState);
 		DFAState state2 = new DFAState(toState);
-		
+		if (!alphabet.contains(onSymb)) {
+			alphabet.add(onSymb); //if the symbol isn't in alphabet, include it
+		}
 		state1.addTransition(onSymb, state2);
 		
 	}
@@ -64,8 +73,7 @@ public class DFA implements DFAInterface{
 
 	@Override
 	public Set<Character> getABC() {
-		// TODO Auto-generated method stub
-		return null;
+		return alphabet;
 	}
 
 	@Override
@@ -110,6 +118,12 @@ public class DFA implements DFAInterface{
 	public State getToState(DFAState from, char onSymb) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public String toString() {
+		String formatedString = "";
+		//TODO: implement toString to follow specified format of 5 parts of a DFA
+		return formatedString;
 	}
 
 }
