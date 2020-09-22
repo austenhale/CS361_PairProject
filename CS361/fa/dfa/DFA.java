@@ -141,7 +141,41 @@ public class DFA implements DFAInterface{
 	
 	public String toString() {
 		String formatedString = "";
-		//TODO: implement toString to follow specified format of 5 parts of a DFA
+		
+		
+		//printing the whole set of states
+		formatedString += "Q = { ";
+		Object[] statesArray  = statesSet.toArray();
+		for (int i = 0; i < statesArray.length; i++) {
+			formatedString += statesArray[i] + " ";
+		}
+		formatedString += "} \n";
+		
+		//printing alphabet
+		formatedString += "Sigma = { ";
+		Object[] alphabetArray = alphabet.toArray();
+		for (int i = 0; i < alphabetArray.length; i++) {
+			formatedString += alphabetArray[i] + " ";
+		}
+		formatedString += "} \n";
+		
+		//printing delta
+		formatedString += "delta =  \n";
+		//TODO: implement delta printing
+		
+		//printing start state
+		formatedString += "q0 = " + startState + "\n";
+		
+		//printing final state
+		formatedString += "F = { ";
+		Object[] finalArray = finalStates.toArray();
+		for (int i = 0; i < finalArray.length; i++) {
+			formatedString += finalArray[i] + " ";
+		}
+		formatedString += "} \n";
+		
+		
+		
 		return formatedString;
 	}
 
