@@ -21,6 +21,11 @@ public class DFAState extends State{
 		transitionMap.put(onSymb, toState);
 		
 	}
-
+	public State transition(char onSymb) {
+		if (transitionMap.containsKey(onSymb)) {
+			return transitionMap.get(onSymb);
+		}
+		return null; //maybe return something other than null to let them know invalid transition
+	}
 
 }
