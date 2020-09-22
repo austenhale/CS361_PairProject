@@ -3,19 +3,20 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import fa.State;
 
 public class DFA implements DFAInterface{
 	
-	private HashSet<DFAState> statesSet; //holds all the states of the DFA
+	private LinkedHashSet<DFAState> statesSet; //holds all the states of the DFA
 	private DFAState startState; //starting state
 	private HashSet<DFAState> finalStates; //holds all final states
 	private HashSet<Character> alphabet; //includes all letters used
 	
 	public DFA() {
-		statesSet = new HashSet<>();
+		statesSet = new LinkedHashSet<>();
 		finalStates = new HashSet<>();
 		alphabet = new HashSet<>();
 	}
@@ -142,8 +143,7 @@ public class DFA implements DFAInterface{
 	
 	public String toString() {
 		String formatedString = "";
-		
-		
+	
 		//printing the whole set of states
 		formatedString += "Q = { ";
 		Object[] statesArray  = statesSet.toArray();
@@ -162,7 +162,6 @@ public class DFA implements DFAInterface{
 		
 		//printing delta
 		formatedString += "delta =  \n\t\t";
-		//TODO: implement delta printing
 		for (int i = 0; i < alphabetArray.length; i++) { //for every character in alphabet
 			formatedString += alphabetArray[i] + "\t";
 			
