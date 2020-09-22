@@ -81,9 +81,9 @@ public class DFA implements DFAInterface{
 	@Override
 	public DFA complement() {
 		DFA complement = new DFA();
-		HashSet<DFAState> statesSetComplement = new HashSet<>(); //holds all the states of the DFA
+		LinkedHashSet<DFAState> statesSetComplement = new LinkedHashSet<>(); //holds all the states of the DFA
 		DFAState startStateComplement = startState; //starting state
-		HashSet<DFAState> finalStatesComplement = new HashSet<>(); //holds all final states
+		LinkedHashSet<DFAState> finalStatesComplement = new LinkedHashSet<>(); //holds all final states
 		
 		//Building up lists
 		for (DFAState state : statesSet) { //go through every state in original
@@ -104,6 +104,19 @@ public class DFA implements DFAInterface{
 		for (DFAState state : statesSetComplement) {
 			complement.addState(state.getName());
 		}
+		
+		//TODO: Add way for complement to get all the same transitions as the original DFA
+//		Object[] statesArray  = statesSet.toArray();
+//		Object[] alphabetArray = alphabet.toArray();
+//		
+//		for (int j = 0; j < statesArray.length; j++) { //for every state
+//			for (int i = 0; i < alphabetArray.length; i++) {
+//				//adds the resulting state of the transition to the output string
+//				 complement.addTransition(fromState, (Character)alphabetArray[i], (DFAState)statesArray[j); 
+//				
+//			}
+//		}
+//			//get transition given state and character
 		
 		return complement;
 	}
