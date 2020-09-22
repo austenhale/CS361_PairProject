@@ -47,11 +47,12 @@ public class DFA implements DFAInterface{
 
 	@Override
 	public void addTransition(String fromState, char onSymb, String toState) {
-		DFAState state1 = new DFAState(fromState);
-		DFAState state2 = new DFAState(toState);
+		DFAState state1 = get(new DFAState(fromState), statesSet);
+		DFAState state2 = get(new DFAState(toState), statesSet);
 		if (!alphabet.contains(onSymb)) {
 			alphabet.add(onSymb); //if the symbol isn't in alphabet, include it
 		}
+		
 		state1.addTransition(onSymb, state2);
 		
 	}
@@ -160,9 +161,26 @@ public class DFA implements DFAInterface{
 		formatedString += "} \n";
 		
 		//printing delta
-		formatedString += "delta =  \n";
+		formatedString += "delta =  \n\t\t";
 		//TODO: implement delta printing
+		for (int i = 0; i < alphabetArray.length; i++) { //for every character in alphabet
+			formatedString += alphabetArray[i] + "\t";
+			
+		}
+		formatedString += "\n\t";
 		
+		for (int j = 0; j < statesArray.length; j++) { //for every state
+			formatedString += statesArray[j] + "\t";
+			for (int i = 0; i < alphabetArray.length; i++) {
+				//adds the resulting state of the transition to the output string
+				formatedString += getToState((DFAState)statesArray[j], (Character)alphabetArray[i]); 
+				formatedString += "\t";
+			}
+			//get transition given state and character
+			
+			formatedString += "\n\t"; //go onto next state
+		}
+		formatedString += "\n";
 		//printing start state
 		formatedString += "q0 = " + startState + "\n";
 		
@@ -177,6 +195,21 @@ public class DFA implements DFAInterface{
 		
 		
 		return formatedString;
+	}
+	
+	/**
+	 * This will get an element from the set
+	 * @param stateToGet
+	 * @param set
+	 * @return
+	 */
+	private DFAState get(DFAState stateToGet, Set<DFAState> set) {
+		for (DFAState state : set) {
+			if (state.toString().equals((stateToGet.toString()))) {
+				return state;
+			}
+		}
+		return null;
 	}
 
 }

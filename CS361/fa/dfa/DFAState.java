@@ -9,15 +9,15 @@ import fa.State;
 public class DFAState extends State{
 	
 	private String name;
-	private HashMap<Character, State> transitionMap; //holds all transitions, unsure if correct paramters
+	private HashMap<Character, DFAState> transitionMap; //holds all transitions, unsure if correct paramters
 	
 
 	public DFAState(String name) {
 		this.name = name;
-		transitionMap = new HashMap<Character, State>();
+		transitionMap = new HashMap<Character, DFAState>();
 	}
 
-	public void addTransition(char onSymb, State toState) {
+	public void addTransition(char onSymb, DFAState toState) {
 		transitionMap.put(onSymb, toState);
 		
 	}
