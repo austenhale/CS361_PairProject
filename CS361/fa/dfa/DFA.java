@@ -111,6 +111,26 @@ public class DFA implements DFAInterface{
 		//s is an input string that goes through the DFA machine
 		//returns true if valid string, false otherwise
 		
+		//starts on start state
+		//calls getToState to go to next state, if valid
+			//if getToState returns null, return false
+		//if valid move, update current state to new state
+		//continue process until no more characters
+		//check if current state is a final state
+			//if it is, return true, else false
+		
+		DFAState currentState = startState;
+		State nextState;
+		for (int i = 0; i < s.length(); i++) {
+			nextState = getToState(currentState, s.charAt(i));
+			if (nextState == null) {
+				return false;
+			}
+			currentState = (DFAState) nextState;
+		}
+		if (finalStates.contains(currentState)) {
+			return true;
+		}
 		return false;
 	}
 
