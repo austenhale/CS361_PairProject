@@ -27,5 +27,9 @@ public class DFAState extends State{
 		}
 		return null; //maybe return something other than null to let them know invalid transition
 	}
+	
+	public String toString() {
+		return name;
+	}
 
 }
