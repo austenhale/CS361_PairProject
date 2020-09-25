@@ -31,5 +31,13 @@ public class DFAState extends State{
 	public String toString() {
 		return name;
 	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public HashMap getMap() {
+		return transitionMap;
+	}
 
 }
