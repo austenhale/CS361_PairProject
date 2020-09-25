@@ -159,10 +159,13 @@ public class DFA implements DFAInterface{
 		State nextState;
 		for (int i = 0; i < s.length(); i++) {
 			nextState = getToState(currentState, s.charAt(i));
-			if (nextState == null) {
+			if (nextState == null && s.charAt(i) != 'e') { //if invalid move and the character isn't an empty string
 				return false;
 			}
-			currentState = (DFAState) nextState;
+			if (s.charAt(i) != 'e') {
+				currentState = (DFAState) nextState;
+			}
+			
 		}
 		if (finalStates.contains(currentState)) {
 			return true;
