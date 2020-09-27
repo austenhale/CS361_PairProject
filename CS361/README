@@ -1,0 +1,49 @@
+# Project 1: DFA Machine
+
+* Author: Austen Hale, Sammie Fullmer
+* Class: CS361 section 1
+* Semester: Fall 2020
+
+## Overview
+
+This program will take a given input file that contains information relating to the DFA, such
+as the states, alphabet, and transitions. It will then use the input strings in the input file
+and determine if those strings are valid or not.
+
+## Compiling and Using
+
+To compile this program, from the top most directory type:
+	javac fa/dfa/DFADriver.java
+To run this program, type one of the following:
+	java fa.dfa.DFADriver ./tests/p1tc1.txt
+	java fa.dfa.DFADriver ./tests/p1tc2.txt
+	java fa.dfa.DFADriver ./tests/p1tc2.txt
+
+## Discussion
+
+Overall this project went well. We didn't have much trouble developing the code for this project, being able to do most of the 
+initial code such as adding the states to the DFA, and receiving the states. The main roadblocks we encountered was figuring out how
+to check if a transition was valid for the DFA, building the complement up, and adding the transitions to the complement.
+
+We resolved the first issue by creating a method in DFAState called transition, that takes in a character and returns the state that
+the DFAState transitions to. The 2nd issue we resolved by thinking through how we wanted to build up the complement, and we decided that the best
+way to do it would to be to take the state lists we already have, and add every state that wasn't the final state to the complement's final list, then add
+the starting state, and finally the rest of the states (which should be the final states of the original). Our final roadblock was that when we added
+the states to the complement's state lists, the states did not retain their transitions in the complement (the original transitions remained unchanged). We
+resolved this issue by using a loop to go through all the DFAStates, and then in each DFAState go through each transition it has in its map, and replicate that
+transition to the new state that the complement has.
+
+## Testing
+
+For testing this project, we used the provided test files to ensure that all our results matched the expected output. Although
+we would've liked to create our own testing files for the project, we didn't have enough time to commit to building our own files.
+
+## Extra Credit
+
+No extra credit in this project.
+
+## Sources used
+
+No sources used outside of class material.
+
+----------
