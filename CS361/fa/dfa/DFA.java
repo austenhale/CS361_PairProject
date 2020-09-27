@@ -10,6 +10,12 @@ import java.util.Set;
 
 import fa.State;
 
+/**
+ * Class to simulate a DFA
+ * 
+ * @author Austen Hale, Sammie Fullmer
+ *
+ */
 public class DFA implements DFAInterface{
 	
 	private LinkedHashSet<DFAState> statesSet; //holds all the states of the DFA
